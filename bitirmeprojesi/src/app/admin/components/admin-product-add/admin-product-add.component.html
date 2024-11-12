@@ -1,0 +1,71 @@
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto">Bootstrap</strong>
+        <small>11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Hello, world! This is a toast message.
+      </div>
+    </div>
+  </div>
+  
+<div class="content col-md-12">
+    <div class="card-header">
+        <h5>Ürün ekle</h5>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="productAddForm">
+            <label for="categoryName">Renk</label>
+            <select class="form-select form-group" formControlName="categoryId" aria-label="Default select example">
+                <option ngDefaultControl="value" *ngFor="let category of categories" [value]="category.id" class="form-control" >{{category.name}}</option>
+              </select>
+            <label for="price">Fiyat</label>
+            <div class="form-group mb-3">
+                <input 
+                type="number"
+                formControlName="price"
+                id="price"
+                placeholder="Fiyat"
+                class="form-control"
+                >
+            </div>
+            <label for="stockQuantity">Stok Adedi</label>
+            <div class="form-group mb-3">
+                <input 
+                type="number"
+                formControlName="stockQuantity"
+                id="stockQuantity"
+                placeholder="Stok Adedi"
+                class="form-control"
+                >
+            </div>
+            <label for="description">Açıklama</label>
+            <div class="form-group mb-3">
+                <input 
+                type="text"
+                formControlName="description"
+                id="description"
+                placeholder="Açıklama"
+                class="form-control"
+                >
+            </div>
+            <label for="name">Ürün İsmi</label>
+            <div class="form-group mb-3">
+                <input 
+                type="text"
+                formControlName="name"
+                id="name"
+                placeholder="Ürün ismi"
+                class="form-control"
+                >
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-primary"(click)="addProduct()">Ekle</button>
+        <button class="btn btn-primary">Guncelle</button>
+    </div>
+</div>
