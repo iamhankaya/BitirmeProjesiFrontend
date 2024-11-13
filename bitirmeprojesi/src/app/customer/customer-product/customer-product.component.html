@@ -1,1 +1,37 @@
-<p>customer-product works!</p>
+<div class="container container2">
+    <div class="mb-3 filterText">
+        <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+            placeholder="Ürün ara">
+    </div>
+    
+    <div *ngIf="filterText" class="alert alert-warning">
+        {{filterText}} aradınız.
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div col-12 col-sm-6 col-md-4 mb-4 *ngFor="let product of products |productFilterPipe:filterText" class="card" style="width: 18rem;">
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{product.name}}</h5>
+              <p class="card-text">{{product.description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Fiyat : {{product.price}}</li>
+              <li class="list-group-item">Stok Adedi : {{product.stockQuantity}}</li>
+              <li class="list-group-item">Eklenme Saati : {{product.createTime}}</li>
+              <li class="list-group-item">Guncellenme Saati : {{product.updateTime}}</li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">
+                <button type="button" class="btn btn-primary">Ürün detayı</button>
+              </a>
+              <a href="#" class="card-link">
+                <button type="button" class="btn btn-primary">Sepete Ekle</button>
+              </a>
+            </div>
+          </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,9 @@
+.content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.card-body{
+    width: 40%;
+}

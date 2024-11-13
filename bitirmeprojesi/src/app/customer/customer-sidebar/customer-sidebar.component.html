@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <div class="navbar-categories">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Tüm kategoriler
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li *ngFor="let category of categories">
+                                <a class="dropdown-item" href="#">{{category.name}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+                <div class="nav-items">
+                    <li *ngFor="let subCategory of subCategories" class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">{{subCategory.name}}</a>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>

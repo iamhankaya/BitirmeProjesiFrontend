@@ -18,7 +18,7 @@
     </div>
     <div class="card-body">
         <form [formGroup]="productAddForm">
-            <label for="categoryName">Renk</label>
+            <label for="categoryName">Kategori</label>
             <select class="form-select form-group" formControlName="categoryId" aria-label="Default select example">
                 <option ngDefaultControl="value" *ngFor="let category of categories" [value]="category.id" class="form-control" >{{category.name}}</option>
               </select>

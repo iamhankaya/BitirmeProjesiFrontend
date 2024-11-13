@@ -8,7 +8,7 @@ import { ResponseModelBase } from '../models/response-model-base';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryServiceService {
+export class CartServiceService {
 
   constructor(private httpClient:HttpClient) { }
   apiUrl:string = "https://localhost:7209/api/Carts/";
