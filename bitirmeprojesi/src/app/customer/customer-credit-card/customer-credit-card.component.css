@@ -1,0 +1,36 @@
+.row{
+    width: 85%;
+    align-items: center;
+    justify-content: space-around;
+}
+.container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee9e9;
+}
+.container2{
+    flex-direction: column;
+}
+.card{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.alert{
+    width: 85%;
+}
+.filterText{
+    width: 85%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+h4 {
+    font-size: 1.5rem;
+    font-weight: bold; 
+    color: #333; 
+    text-align: center; 
+    margin-bottom: 1.5rem; 
+    padding-top: 10px; 
+    padding-bottom: 5px;
+}

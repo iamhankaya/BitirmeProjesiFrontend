@@ -33,8 +33,8 @@ export class UserServiceService {
     return this.httpClient.post<ResponseModelBase>(newPath,product);
   }
 
-  getWhereUser():Observable<DataResponseModel<User>>{
-    let newPath = this.apiUrl+"getwhere";
+  getWhereUser(fullName:string):Observable<DataResponseModel<User>>{
+    let newPath = this.apiUrl+"getwhere?fullName="+fullName;
     return this.httpClient.get<DataResponseModel<User>>(newPath);
   }
 

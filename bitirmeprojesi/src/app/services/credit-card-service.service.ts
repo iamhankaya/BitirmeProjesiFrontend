@@ -33,8 +33,8 @@ export class CreditCardServiceService {
     return this.httpClient.post<ResponseModelBase>(newPath,product);
   }
 
-  getWhereCreditCard():Observable<DataResponseModel<CreditCard>>{
-    let newPath = this.apiUrl+"getwhere";
+  getWhereCreditCard(userId:number):Observable<DataResponseModel<CreditCard>>{
+    let newPath = this.apiUrl+"getwhere?userId="+userId;
     return this.httpClient.get<DataResponseModel<CreditCard>>(newPath);
   }
 

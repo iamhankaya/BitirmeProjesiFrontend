@@ -1,0 +1,63 @@
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto">Bootstrap</strong>
+        <small>11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Hello, world! This is a toast message.
+      </div>
+    </div>
+  </div>
+
+<div>
+    <h4>Kredi Kartlarım</h4>
+</div>
+<button class="btn btn-success" (click)="isFormVisible = !isFormVisible">Yeni Kart Ekle</button>
+<div class="container">
+    <div class="row">
+        <div col-12 col-sm-6 col-md-4 mb-4 *ngFor="let creditCard of creditCards" class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{currentName}} - card</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{creditCard.creditCardNumber}}</li>
+              <li class="list-group-item">A second item</li>
+            </ul>
+            <div class="card-body">
+              <button class="btn btn-primary">Düzenle</button>
+            </div>
+          </div>
+    </div>
+</div>
+
+  <div *ngIf="isFormVisible">
+    <form [formGroup]="creditCardAddForm">
+      <div class="form-group">
+        <label for="creditCardNumber">Kredi Kartı Numarası</label>
+        <input 
+          id="creditCardNumber" 
+          type="text" 
+          class="form-control" 
+          formControlName="creditCardNumber" 
+          placeholder="Kredi Kartı Numarası"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="creditCardPassword">Kredi Kartı Şifresi</label>
+        <input 
+          id="creditCardPassword" 
+          type="password" 
+          class="form-control" 
+          formControlName="creditCardPassword" 
+          placeholder="Kredi Kartı Şifresi"
+        />
+      </div>
+  
+      <button class="btn btn-success" (click)="addCreditCard()">Kart Ekle</button>
+    </form>
+  </div>
+
