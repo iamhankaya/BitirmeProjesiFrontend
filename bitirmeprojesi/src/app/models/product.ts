@@ -1,3 +1,6 @@
+import { Cart } from "./cart";
+import { Order } from "./order";
+
 export interface Product {
     id:Number,
     categoryId:Number,
@@ -6,5 +9,7 @@ export interface Product {
     stockQuantity:number,
     price:number,
     createTime:Date,
-    updateTime:Date
+    updateTime:Date,
+    orders:Order[],
+    carts:Cart[]
 }

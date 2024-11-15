@@ -1,3 +1,5 @@
+import { Product } from "./product"
+
 export interface Order {
     id:number
     createTime:Date 
@@ -6,4 +8,5 @@ export interface Order {
     totalAmount:number
     orderDate:Date
     address:string
+    //products:Product[]
 }

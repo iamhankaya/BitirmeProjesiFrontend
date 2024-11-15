@@ -1,1 +1,44 @@
-<p>customer-cart works!</p>
+<div class="content">
+    <div class="cart-content">
+        <!-- <div *ngFor="let product of products">
+            <h3>Sepetim (x ürün)</h3>
+            <button (click)="addProductToCart(product)">Ekle</button>
+        </div> -->
+        <div class="suggested-products">
+            <h5>Eklemek isteyebileceğiniz ürünler</h5>
+            <div class="card mb-3" style="max-width: 350px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="..." class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart" *ngFor="let product of currentCart.products">
+            <div>
+                <h6>{{product.name}}</h6>
+                <p>{{product.description}}</p>
+            </div>
+            <div>
+                <button class="btn btn-light">-</button>
+                <input type="number" value="0" />
+                <button class="btn btn-light">+</button>
+            </div>
+            <div>
+                <h5></h5>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div class="cart-sidebar">
+
+    </div>
+</div>

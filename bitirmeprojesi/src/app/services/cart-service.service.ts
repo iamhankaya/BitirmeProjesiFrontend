@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { DataResponseModel } from '../models/data-response-model';
 import { Cart } from '../models/cart';
 import { ResponseModelBase } from '../models/response-model-base';
+import { Product } from '../models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -33,13 +34,18 @@ export class CartServiceService {
     return this.httpClient.post<ResponseModelBase>(newPath,product);
   }
 
-  getWhereCart():Observable<DataResponseModel<Cart>>{
-    let newPath = this.apiUrl+"getwhere";
+  addProductToCart(cartId:number,product:Product):Observable<ResponseModelBase>{
+    let newPath = this.apiUrl+"addProductToCart?cartId="+cartId;
+    return this.httpClient.post<ResponseModelBase>(newPath,product);
+  }
+
+  getWhereCart(userId:number):Observable<DataResponseModel<Cart>>{
+    let newPath = this.apiUrl+"getwhere?userId="+userId;
     return this.httpClient.get<DataResponseModel<Cart>>(newPath);
   }
 
-  getSingleCart():Observable<DataResponseModel<Cart>>{
-    let newPath = this.apiUrl+"getsingleasync";
+  getSingleCart(cartId:number):Observable<DataResponseModel<Cart>>{
+    let newPath = this.apiUrl+"getsingleasync?cartId="+cartId;
     return this.httpClient.get<DataResponseModel<Cart>>(newPath);
   }
 

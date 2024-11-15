@@ -31,6 +31,7 @@ export class AuthServiceService {
   register(userForRegister:UserForRegister):Observable<TokenResponseModel>{
     let newPath = this.apiUrl+"register";
     this.isLoginSubject.next(true);
+    localStorage.setItem("customerName",userForRegister.firstName+" "+userForRegister.lastName);
     return this.httpClient.post<TokenResponseModel>(newPath,userForRegister);
   }
 

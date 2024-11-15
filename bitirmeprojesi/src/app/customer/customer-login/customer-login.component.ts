@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, FormControl, Validators, FormsModule, ReactiveF
 import { Router } from '@angular/router';
 import { User } from '../../models/user';
 import { UserServiceService } from '../../services/user-service.service';
+import { CartServiceService } from '../../services/cart-service.service';
+import { Cart } from '../../models/cart';
 
 @Component({
   selector: 'app-customer-login',
@@ -18,10 +20,13 @@ export class CustomerLoginComponent implements AfterViewInit,OnInit {
   registerForm:FormGroup;
   customers:User[] = [];
   currentCustomer:User;
+  carts:Cart[] = [];
+  cart!:Cart;
   constructor(private authService:AuthServiceService,
     private formBuilder:FormBuilder,
     private router: Router,
-    private userService:UserServiceService
+    private userService:UserServiceService,
+    private cartService:CartServiceService
   ){
 
   }
@@ -70,6 +75,8 @@ export class CustomerLoginComponent implements AfterViewInit,OnInit {
       let registerModel = Object.assign({},this.registerForm.value);
       this.authService.register(registerModel).subscribe(response => {
         localStorage.setItem("customerName",this.registerForm.get('firstName')?.value+" "+this.registerForm.get('lastName')?.value);
+        this.setCurrentCustomer();
+        this.getCarts();
         localStorage.setItem("token", response.data.token);
         console.log(response.data.token);
         this.router.navigate(["home"]);  
@@ -82,6 +89,7 @@ export class CustomerLoginComponent implements AfterViewInit,OnInit {
       let loginModel = Object.assign({},this.loginForm.value);
       this.authService.login(loginModel).subscribe(response => {
         this.setCurrentCustomer();
+        this.getCarts();
         localStorage.setItem("token", response.data.token);
         console.log(response.data.token);
         this.router.navigate(["home"]);  
@@ -108,4 +116,25 @@ export class CustomerLoginComponent implements AfterViewInit,OnInit {
       this.customers = response.data;
     })
   }
+  getCarts(){
+    this.cartService.getWhereCart(this.currentCustomer.id).subscribe(response => {
+      this.carts=response.data;
+      console.log(this.carts);
+      this.createCart();
+    })
+  }
+
+  createCart(){
+    if(this.carts.length === 0){
+      console.log(this.currentCustomer.id);
+      this.cart = { userId: this.currentCustomer.id } as Cart;
+      this.cartService.addCart(this.cart).subscribe(response => {
+        console.log("Kart oluşturuldu");
+      })
+    }
+    else{
+      console.log("Zaten bu kullanıcı için cart var");
+    }
+  }
+
 }

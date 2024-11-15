@@ -13,7 +13,11 @@ import { ProductFilterPipePipe } from '../../pipes/product-filter-pipe.pipe';
   styleUrl: './customer-product.component.css'
 })
 export class CustomerProductComponent implements OnInit {
+  product1!:Product;
+  product2!:Product;
+  product3!:Product;
   products:Product[] = [];
+  productsPlaceHolder:Product[] = [this.product1,this.product2,this.product3];
   filterText: string = "";
 
  constructor(private productService:ProductServiceService){}
