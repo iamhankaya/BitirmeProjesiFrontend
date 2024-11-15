@@ -1,10 +1,10 @@
 export interface Review {
-    id:number
+    id:Number
     createTime:Date 
     updateTime:Date
-    productId:number
-    userId:number
-    rating:number
+    productId:Number
+    userId:Number
+    rating:Number
     comment:string
     
 }

@@ -8,6 +8,7 @@ import { CustomerProfileComponent } from './customer/customer-profile/customer-p
 import { CustomerProductComponent } from './customer/customer-product/customer-product.component';
 import { CustomerCreditCardComponent } from './customer/customer-credit-card/customer-credit-card.component';
 import { CustomerCartComponent } from './customer/customer-cart/customer-cart.component';
+import { CustomerProductDetailComponent } from './customer/customer-product-detail/customer-product-detail.component';
 
 export const routes: Routes = [
     {path:"admin",component:AdminComponent,children:[
@@ -19,6 +20,7 @@ export const routes: Routes = [
         {path:"profile",component:CustomerProfileComponent},
         {path:"home",component:CustomerProductComponent},
         {path:"credit-cards",component:CustomerCreditCardComponent},
-        {path:"cart",component:CustomerCartComponent}
+        {path:"cart",component:CustomerCartComponent},
+        {path:"product-detail/:productId",component:CustomerProductDetailComponent}
     ]},
 ];

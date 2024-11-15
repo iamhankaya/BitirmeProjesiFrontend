@@ -1,0 +1,18 @@
+.content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 80vh;
+}
+.formGroup{
+    width: 60%;
+    background-color: aqua;
+}
+.form-group{
+    width: 100%;
+}
+.input{
+    width: 60%;
+}

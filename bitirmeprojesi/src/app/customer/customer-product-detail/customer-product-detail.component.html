@@ -1,0 +1,60 @@
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto">Bootstrap</strong>
+        <small>11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Hello, world! This is a toast message.
+      </div>
+    </div>
+  </div>
+<div class="content">
+    <div class="card mb-3" *ngIf="currentProduct; else loading">
+      <div *ngFor="let product of currentProduct">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+    <div class="reviews">
+        <div *ngFor="let review of productReviews" class="card" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+                <h3 class="card-title">{{currentUserName}}</h3>
+                <li class="list-group-item">Rating: {{review.rating}}</li>
+                <li class="list-group-item">Comment: {{review.comment}}</li>          
+            </ul>
+          </div>
+    </div>
+    <form class="formGroup" [formGroup]="reviewForm">
+        <h2>Yorum Yap</h2>
+        <label for="rating">Rating</label>
+        <div class="form-group mb-3">
+            <input 
+            type="number"
+            formControlName="rating"
+            id="rating"
+            placeholder="Rating"
+            class="form-control"
+            >
+        </div>
+        <label for="comment">Yorum</label>
+        <div class="form-group mb-3">
+            <input 
+            type="text"
+            formControlName="comment"
+            id="comment"
+            placeholder="comment"
+            class="form-control"
+            >
+        </div>
+        <button class="btn btn-primary" (click)="publishReview()">Yorum Yap</button>
+    </form>
+    <ng-template #loading>Loading...</ng-template>
+  </div>
+  

@@ -38,8 +38,8 @@ export class ProductServiceService {
     return this.httpClient.get<DataResponseModel<Product>>(newPath);
   }
 
-  getSingleProduct():Observable<DataResponseModel<Product>>{
-    let newPath = this.apiUrl+"getsingleasync";
+  getSingleProduct(productId:Number):Observable<DataResponseModel<Product>>{
+    let newPath = this.apiUrl+"getsingleasync?id="+productId;
     return this.httpClient.get<DataResponseModel<Product>>(newPath);
   }
 

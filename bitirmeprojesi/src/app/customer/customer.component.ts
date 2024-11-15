@@ -12,7 +12,7 @@ import { CustomerProductComponent } from "./customer-product/customer-product.co
 @Component({
   selector: 'app-customer',
   standalone: true,
-  imports: [CustomerNavbarComponent, RouterOutlet, CustomerSidebarComponent, CustomerFooterComponent, CustomerProductComponent],
+  imports: [CustomerNavbarComponent, RouterOutlet, CustomerSidebarComponent, CustomerFooterComponent],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.css'
 })

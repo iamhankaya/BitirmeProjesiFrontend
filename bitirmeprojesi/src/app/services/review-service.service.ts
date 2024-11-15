@@ -33,8 +33,8 @@ export class ReviewServiceService {
     return this.httpClient.post<ResponseModelBase>(newPath,product);
   }
 
-  getWhereReview():Observable<DataResponseModel<Review>>{
-    let newPath = this.apiUrl+"getwhere";
+  getWhereReview(productId:Number):Observable<DataResponseModel<Review>>{
+    let newPath = this.apiUrl+"getwhere?productId="+productId;
     return this.httpClient.get<DataResponseModel<Review>>(newPath);
   }
 

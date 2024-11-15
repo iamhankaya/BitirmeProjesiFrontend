@@ -23,18 +23,14 @@
         <li class="list-group-item">Guncellenme Saati : {{product.updateTime}}</li>
       </ul>
       <div class="card-body">
-        <a href="#" class="card-link">
-          <button type="button" class="btn btn-primary">Ürün detayı</button>
-        </a>
-        <a href="#" class="card-link">
+          <button (click)="showProductDetail(product.id)" type="button" class="btn btn-primary">Ürün detayı</button>
           <button type="button" class="btn btn-primary">Sepete Ekle</button>
-        </a>
       </div>
     </div>
 
   </div>
 </div>
-<div class="container">
+<div class="container" *ngIf="!isLoading">
   <div class="row">
     <div col-12 col-sm-6 col-md-4 mb-4 *ngFor="let product of productsPlaceHolder" class="card" style="width: 18rem;">
       <img src="..." class="card-img-top" alt="...">
