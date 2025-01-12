@@ -61,4 +61,9 @@ export class CategoryServiceService {
       body: products
   });
   }
+
+  searchCategoryWithFile(filePath:string):Observable<ResponseModelBase>{
+    let newPath = this.apiUrl+"searchcategorywithfile?imagePath="+filePath;
+    return this.httpClient.get<DataResponseModel<number>>(newPath);
+  }
 }

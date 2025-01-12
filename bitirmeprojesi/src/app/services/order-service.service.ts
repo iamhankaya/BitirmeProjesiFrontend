@@ -11,7 +11,7 @@ import { ResponseModelBase } from '../models/response-model-base';
 export class OrderServiceService {
 
   constructor(private httpClient:HttpClient) { }
-  apiUrl:string = "https://localhost:7209/api/Categories/";
+  apiUrl:string = "https://localhost:7209/api/Orders/";
 
   getAllOrders():Observable<DataResponseModel<Order>>{
     let newPath = this.apiUrl+"getall"
@@ -33,8 +33,8 @@ export class OrderServiceService {
     return this.httpClient.post<ResponseModelBase>(newPath,product);
   }
 
-  getWhereOrder():Observable<DataResponseModel<Order>>{
-    let newPath = this.apiUrl+"getwhere";
+  getWhereOrder(userId:number):Observable<DataResponseModel<Order>>{
+    let newPath = this.apiUrl+"getwhere?userId="+userId;
     return this.httpClient.get<DataResponseModel<Order>>(newPath);
   }
 

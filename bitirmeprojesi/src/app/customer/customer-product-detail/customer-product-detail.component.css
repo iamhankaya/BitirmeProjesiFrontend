@@ -1,18 +1,116 @@
-.content{
-    width: 100%;
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+/* Toast Notification */
+.toast-container {
+    z-index: 1050;
+  }
+  .toast-header img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Content Section */
+  .content {
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #BCCCDC;
+  }
+  
+  /* Product Card */
+  .card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  .card-text {
+    color: #555;
+  }
+  .text-body-secondary {
+    color: #6c757d;
+  }
+  
+  /* Divider */
+  .divider {
+    height: 2px;
+    background-color: black;
+    margin: 20px 0;
+  }
+  
+  /* Reviews Section */
+  .reviews {
+    margin-top: 20px;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    height: 80vh;
-}
-.formGroup{
-    width: 60%;
-    background-color: aqua;
-}
-.form-group{
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .reviews .card {
+    flex: 1 1 calc(33.333% - 15px);
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  .reviews h3 {
+    margin: 10px 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  .list-group-item {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+  }
+  
+  /* Form Section */
+  .formGroup {
+    margin-top: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+  }
+  .formGroup h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+  }
+  .form-group label {
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .form-control {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+  }
+  .btn-primary {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+  }
+
+  .card img{
     width: 100%;
-}
-.input{
-    width: 60%;
-}
+    object-fit: contain;
+  }
+  
+  /* Loading Template */
+  ng-template {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+  
+  

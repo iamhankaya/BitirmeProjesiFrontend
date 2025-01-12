@@ -1,0 +1,14 @@
+<div class="continer">
+    <div class="row">
+        <div col-12 col-sm-6 col-md-4 mb-4 *ngFor="let user of users" class="card" style="width: 18rem;">
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{user.name+" "+user.surname}}</h5>
+              <p class="card-text">{{user.email}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Fiyat : {{user.id}}</li>
+              <li class="list-group-item">Stok Adedi : {{user.status}}</li>
+            </ul>
+          </div>
+    </div>

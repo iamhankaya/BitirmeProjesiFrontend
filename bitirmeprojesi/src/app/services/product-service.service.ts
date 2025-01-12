@@ -33,8 +33,8 @@ export class ProductServiceService {
     return this.httpClient.post<ResponseModelBase>(newPath,product);
   }
 
-  getWhereProduct():Observable<DataResponseModel<Product>>{
-    let newPath = this.apiUrl+"getwhere";
+  getWhereProduct(categoryId:Number):Observable<DataResponseModel<Product>>{
+    let newPath = this.apiUrl+"getwhere?categoryId="+categoryId;
     return this.httpClient.get<DataResponseModel<Product>>(newPath);
   }
 

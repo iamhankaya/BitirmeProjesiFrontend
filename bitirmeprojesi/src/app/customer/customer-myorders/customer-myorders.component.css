@@ -1,0 +1,57 @@
+/* General Card Styles */
+.card {
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Header Styling */
+  .card-header {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px;
+  }
+  
+  /* List Group Styles */
+  .list-group-item {
+    padding: 10px 15px;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .list-group-item:last-child {
+    border-bottom: none;
+  }
+  
+  /* Product Item Styles */
+  .list-group-item li {
+    padding: 5px 0;
+    color: #555;
+  }
+  
+  /* Total Amount Styling */
+  .list-group-item:last-child {
+    font-weight: bold;
+    color: #28a745;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .card {
+      width: 100%;
+    }
+  }
+  .container{
+    width: 80%;
+    height: auto;
+    background-color: #BCCCDC;
+  }
+  

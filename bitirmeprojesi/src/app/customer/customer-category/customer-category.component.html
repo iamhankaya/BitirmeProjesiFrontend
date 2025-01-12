@@ -1,1 +1,30 @@
-<p>customer-category works!</p>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto">Bootstrap</strong>
+        <small>11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Hello, world! This is a toast message.
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div col-12 col-sm-6 col-md-4 mb-4 *ngFor="let category of categories let i =index" class="card"
+        style="width: 18rem;">
+        <img src="assets/images/{{imagesUrl[i]}}" class="card-img-top" alt="resimyok">
+  
+        <div class="card-body">
+          <h5 class="card-title">{{category.name}}</h5>
+          <p class="card-text">{{category.description}}</p>
+        </div>
+        <div class="card-body">
+            <button (click)="goCategoryDetail(category.id)" type="button" class="btn btn-primary">Kategori detayı</button>
+        </div>
+      </div>
+    </div>
+  </div>

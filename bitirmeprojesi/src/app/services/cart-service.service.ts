@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { DataResponseModel } from '../models/data-response-model';
 import { Cart } from '../models/cart';
 import { ResponseModelBase } from '../models/response-model-base';
@@ -10,7 +10,8 @@ import { Product } from '../models/product';
   providedIn: 'root'
 })
 export class CartServiceService {
-
+  private cartSubject =  new BehaviorSubject<Product[]>([]);
+  cartSubject$ = this.cartSubject.asObservable();
   constructor(private httpClient:HttpClient) { }
   apiUrl:string = "https://localhost:7209/api/Carts/";
 
@@ -38,7 +39,10 @@ export class CartServiceService {
     let newPath = this.apiUrl+"addProductToCart?cartId="+cartId;
     return this.httpClient.post<ResponseModelBase>(newPath,product);
   }
-
+  deleteProductFromCart(cartId:number,product:Product):Observable<ResponseModelBase>{
+    let newPath = this.apiUrl+"deleteProductFromCart?cartId="+cartId;
+    return this.httpClient.post<ResponseModelBase>(newPath,product);
+  }
   getWhereCart(userId:number):Observable<DataResponseModel<Cart>>{
     let newPath = this.apiUrl+"getwhere?userId="+userId;
     return this.httpClient.get<DataResponseModel<Cart>>(newPath);

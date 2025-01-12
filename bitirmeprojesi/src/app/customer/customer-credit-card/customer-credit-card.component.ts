@@ -20,6 +20,7 @@ export class CustomerCreditCardComponent implements OnInit{
   currentName:string = localStorage.getItem("customerName") || "";
   creditCardAddForm:FormGroup
   isFormVisible = false;
+  isCreditCardsEmpty = false;
   constructor(private creditCardService:CreditCardServiceService,
     private userService:UserServiceService,
     private formBuilder:FormBuilder,
@@ -35,6 +36,10 @@ export class CustomerCreditCardComponent implements OnInit{
   getCreditCards(){
     this.creditCardService.getWhereCreditCard(this.currentUser[0].id).subscribe(response => {
       this.creditCards = response.data;
+      if(this.creditCards.length === 0){
+        this.isCreditCardsEmpty = true;
+      }
+      console.log(this.isCreditCardsEmpty);
       console.log(this.creditCards);
     })
   }
@@ -53,7 +58,10 @@ export class CustomerCreditCardComponent implements OnInit{
   createCreditCardAddForm(){
     this.creditCardAddForm = this.formBuilder.group({
       creditCardNumber:["",Validators.required],
-      creditCardPassword:["",Validators.required]
+      creditCardPassword:["",Validators.required],
+      cvc:["",Validators.required],
+      creditAmount:["",Validators.required],
+      creditCardType:["",Validators.required],
     })
   }
 
@@ -64,6 +72,8 @@ export class CustomerCreditCardComponent implements OnInit{
       console.log(this.currentUser[0].id);
       this.creditCardService.addCreditCard(creditCardModel).subscribe(response => {
         this.showToast(response.message);
+      },error => {
+        this.showToast(error.message);
       })
       this.isFormVisible=false;
     }

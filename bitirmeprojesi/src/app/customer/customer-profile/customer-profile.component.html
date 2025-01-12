@@ -1,1 +1,49 @@
-<p>customer-profile works!</p>
+<!-- <div class="container">
+  <div class="profile-card">
+    <img src="assets/images/98d8c98167c0e03cb7b65c125d12daaa.jpg" class="profile-img" alt="Profile Picture">
+    <div class="profile-details">
+      <h5 class="profile-name">{{currentUser.name + " " + currentUser.surname}}</h5>
+      <p class="profile-email">{{currentUser.email}}</p>
+      <p class="profile-join-date">Joined: {{currentUser.createTime}}</p>
+    </div>
+  </div>
+
+  <div class="reviews-section">
+    <h3>Yorumlarım</h3>
+    <div *ngFor="let review of reviews" class="review-card">
+      <ul class="review-list">
+        <li class="review-item"><strong>Rating:</strong> {{review.rating}}</li>
+        <li class="review-item"><strong>Product ID:</strong> {{review.productId}}</li>
+        <li class="review-item"><strong>Yorum Yapılma Zamanı:</strong> {{review.createTime}}</li>
+        <li class="review-item"><strong>Yorum:</strong> {{review.comment}}</li>
+      </ul>
+    </div>
+  </div> -->
+
+  <div class="container">
+    <div class="profile-card">
+      <img src="assets/images/98d8c98167c0e03cb7b65c125d12daaa.jpg" class="profile-img" alt="Profile Picture">
+      <div class="profile-details">
+        <h5 class="profile-name">{{currentUser.name + " " + currentUser.surname}}</h5>
+        <p class="profile-email">{{currentUser.email}}</p>
+        <p class="profile-join-date">Joined: {{currentUser.createTime}}</p>
+      </div>
+    </div>
+  
+    <div class="reviews-section">
+      <h3>Yorumlarım</h3>
+      <div *ngFor="let review of reviews; let i = index" class="review-card">
+        <ul class="review-list">
+          <li class="review-item"><strong>Rating:</strong> {{review.rating}}</li>
+          <li class="review-item"><strong>Product ID:</strong> {{review.productId}}</li>
+          <li class="review-item"><strong>Yorum Yapılma Zamanı:</strong> {{review.createTime}}</li>
+          <li class="review-item"><strong>Yorum:</strong> {{review.comment}}</li>
+          <!-- Silme Butonu -->
+          <li class="review-item">
+            <button class="delete-btn" (click)="deleteReview(review)">🗑️ Sil</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  

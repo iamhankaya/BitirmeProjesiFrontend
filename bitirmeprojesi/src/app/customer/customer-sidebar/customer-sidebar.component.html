@@ -10,14 +10,14 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li *ngFor="let category of categories">
-                                <a class="dropdown-item" href="#">{{category.name}}</a>
+                                <a class="dropdown-item" href="category/{{category.id}}">{{category.name}}</a>
                             </li>
                         </ul>
                     </li>
                 </div>
                 <div class="nav-items">
                     <li *ngFor="let subCategory of subCategories" class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">{{subCategory.name}}</a>
+                        <a class="nav-link active" aria-current="page" href="category/{{subCategory.id}}">{{subCategory.name}}</a>
                     </li>
                 </div>
             </ul>

@@ -4,7 +4,7 @@ export interface Review {
     updateTime:Date
     productId:Number
     userId:Number
-    rating:Number
+    rating:number
     comment:string
     
 }

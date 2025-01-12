@@ -15,16 +15,18 @@
 <div>
     <h4>Kredi Kartlarım</h4>
 </div>
-<button class="btn btn-success" (click)="isFormVisible = !isFormVisible">Yeni Kart Ekle</button>
-<div class="container">
+<div *ngIf="isCreditCardsEmpty">
+  <h2>Hiç kayıtlı kredi kartı yok.</h2>
+</div>
+<div *ngIf="!isCreditCardsEmpty" class="container">
     <div class="row">
         <div col-12 col-sm-6 col-md-4 mb-4 *ngFor="let creditCard of creditCards" class="card" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">{{currentName}} - card</h5>
+              <h5 class="card-title">{{currentName}} - {{creditCard.creditCardType}}</h5>
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">{{creditCard.creditCardNumber}}</li>
-              <li class="list-group-item">A second item</li>
+              <li class="list-group-item">{{creditCard.creditAmount}}Lira Limit</li>
             </ul>
             <div class="card-body">
               <button class="btn btn-primary">Düzenle</button>
@@ -32,9 +34,9 @@
           </div>
     </div>
 </div>
-
-  <div *ngIf="isFormVisible">
-    <form [formGroup]="creditCardAddForm">
+<button class="btn btn-success" (click)="isFormVisible = !isFormVisible">Yeni Kart Ekle</button>
+  <div *ngIf="isFormVisible" class="formDiv">
+    <form [formGroup]="creditCardAddForm" class="form">
       <div class="form-group">
         <label for="creditCardNumber">Kredi Kartı Numarası</label>
         <input 
@@ -45,7 +47,6 @@
           placeholder="Kredi Kartı Numarası"
         />
       </div>
-  
       <div class="form-group">
         <label for="creditCardPassword">Kredi Kartı Şifresi</label>
         <input 
@@ -54,6 +55,36 @@
           class="form-control" 
           formControlName="creditCardPassword" 
           placeholder="Kredi Kartı Şifresi"
+        />
+      </div>
+      <div class="form-group">
+        <label for="creditCardType">Kredi Kartı Type</label>
+        <input 
+          id="creditCardType" 
+          type="text" 
+          class="form-control" 
+          formControlName="creditCardType" 
+          placeholder="Kredi Kartı Type"
+        />
+      </div>
+      <div class="form-group">
+        <label for="cvc">cvc</label>
+        <input 
+          id="cvc" 
+          type="password"
+          class="form-control"
+          formControlName="cvc" 
+          placeholder="cvc"
+        />
+      </div>
+      <div class="form-group">
+        <label for="creditAmount">Credit Amount</label>
+        <input 
+          id="creditAmount" 
+          type="number" 
+          class="form-control" 
+          formControlName="creditAmount" 
+          placeholder="CreditAmount"
         />
       </div>
   

@@ -8,5 +8,5 @@ export interface Order {
     totalAmount:number
     orderDate:Date
     address:string
-    //products:Product[]
+    products:Product[]
 }

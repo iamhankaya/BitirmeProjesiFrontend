@@ -6,6 +6,7 @@ import { User } from '../../models/user';
 import { UserServiceService } from '../../services/user-service.service';
 import { CartServiceService } from '../../services/cart-service.service';
 import { Cart } from '../../models/cart';
+import { ToastService } from '../../services/toast-service.service';
 
 @Component({
   selector: 'app-customer-login',
@@ -26,7 +27,8 @@ export class CustomerLoginComponent implements AfterViewInit,OnInit {
     private formBuilder:FormBuilder,
     private router: Router,
     private userService:UserServiceService,
-    private cartService:CartServiceService
+    private cartService:CartServiceService,
+    private toastService:ToastService
   ){
 
   }
@@ -93,6 +95,8 @@ export class CustomerLoginComponent implements AfterViewInit,OnInit {
         localStorage.setItem("token", response.data.token);
         console.log(response.data.token);
         this.router.navigate(["home"]);  
+      },error => {
+        this.toastService.showToast(error.message);
       })
     }
   }
@@ -106,7 +110,7 @@ export class CustomerLoginComponent implements AfterViewInit,OnInit {
       }
     });
     if(this.currentCustomer==null){
-
+      
     }
     localStorage.setItem("customerName",this.currentCustomer.name+" "+this.currentCustomer.surname);
   }
@@ -127,7 +131,7 @@ export class CustomerLoginComponent implements AfterViewInit,OnInit {
   createCart(){
     if(this.carts.length === 0){
       console.log(this.currentCustomer.id);
-      this.cart = { userId: this.currentCustomer.id } as Cart;
+      this.cart = { userId: this.currentCustomer.id ,totalAmount:0} as Cart;
       this.cartService.addCart(this.cart).subscribe(response => {
         console.log("Kart oluşturuldu");
       })

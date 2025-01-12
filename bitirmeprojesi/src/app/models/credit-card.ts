@@ -5,4 +5,7 @@ export interface CreditCard {
     creditCardNumber:number
     creditCardPassword:number
     userId:number
+    cvc:number
+    creditAmount:number
+    creditCardType:string
 }
